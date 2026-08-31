@@ -13,7 +13,11 @@ export type FraudType =
   | "택배기사_사칭피싱"
   | "중고차_사기"
   | "반려동물_분양사기"
-  | "티켓_되팔이_사기";
+  | "티켓_되팔이_사기"
+  | "가상자산_사기"
+  | "파밍_사기"
+  | "보험사기"
+  | "명의도용_사기";
 
 export type ScenarioFormat = "text" | "dialogue" | "sms" | "notice";
 export type Answer = "fraud" | "safe";
