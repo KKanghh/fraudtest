@@ -28,6 +28,9 @@ export interface SeedScenario {
   answer: Answer;
   explanation: string;
   source: string;
+  /** 생성 에이전트가 만들고 풀이 에이전트가 정답과 일치함을 검증한 카드(scripts/validate-scenarios.mjs 산출물). 있으면 실시간 생성 대신 그대로 서비스한다. */
+  verifiedTitle?: string;
+  verifiedContent?: string;
 }
 
 export interface QuizCard {

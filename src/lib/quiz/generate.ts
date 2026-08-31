@@ -14,6 +14,16 @@ const FRAUD_GUARD_SYSTEM_PROMPT =
 // AI 키가 없는 로컬 개발/데모 환경에서도 카드가 그대로 노출되지만, 정답(answer)만 제외하면
 // 큐레이션된 시드 자체가 이미 완성된 콘텐츠이므로 체험에는 문제가 없다.
 export async function buildQuizCard(scenario: SeedScenario): Promise<QuizCard> {
+  if (scenario.verifiedTitle && scenario.verifiedContent) {
+    return {
+      scenarioId: scenario.id,
+      type: scenario.type,
+      format: scenario.format,
+      title: scenario.verifiedTitle,
+      content: scenario.verifiedContent,
+    };
+  }
+
   if (!isAiConfigured()) {
     return {
       scenarioId: scenario.id,
