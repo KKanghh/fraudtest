@@ -13,7 +13,11 @@ export type FraudType =
   | "택배기사_사칭피싱"
   | "중고차_사기"
   | "반려동물_분양사기"
-  | "티켓_되팔이_사기";
+  | "티켓_되팔이_사기"
+  | "가상자산_사기"
+  | "파밍_사기"
+  | "보험사기"
+  | "명의도용_사기";
 
 export type ScenarioFormat = "text" | "dialogue" | "sms" | "notice";
 export type Answer = "fraud" | "safe";
@@ -28,6 +32,9 @@ export interface SeedScenario {
   answer: Answer;
   explanation: string;
   source: string;
+  /** 생성 에이전트가 만들고 풀이 에이전트가 정답과 일치함을 검증한 카드(scripts/validate-scenarios.mjs 산출물). 있으면 실시간 생성 대신 그대로 서비스한다. */
+  verifiedTitle?: string;
+  verifiedContent?: string;
 }
 
 export interface QuizCard {
